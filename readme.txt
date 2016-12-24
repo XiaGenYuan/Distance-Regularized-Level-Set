@@ -1,0 +1,1 @@
+The class is implemented based on "Distance Regularized Level Set Evolution and Its Application to Image Segmentation" by Chunming Li.
