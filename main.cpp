@@ -27,5 +27,15 @@ int main(int argc, const char * argv[]) {
     PotentialFunction potential_function = DOUBLE_WELL;
     LevelSet2D level_set2D(image_data, image_width, image_height, mu, timestep, lambda, alfa,
                                  epsilon, potential_function, iters);
+    // TODO: init your segmentation mask
+    vector<bool> mask(image_size, false);
+    level_set2D.InitPhi(mask, image_width, image_height);
+    for(int i = 0; i < 5; ++ i) {
+        level_set2D.Evolution();
+    }
+    alfa = 0;
+    level_set2D.Evolution();
+    vector<double>& phi = level_set2D.GetPhi();
+    // use updated phi function to update the segmentation result
     return 0;
 }
